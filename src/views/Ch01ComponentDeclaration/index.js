@@ -3,7 +3,8 @@ import ComA from "./ComA";
 import ComB from "./ComB";
 
 
-function Ch01ComponentDeclaration() {
+function Ch01ComponentDeclaration(props) {
+  console.log(props);
     return (
       <div className="card">
         <div className="card-header">
@@ -11,8 +12,8 @@ function Ch01ComponentDeclaration() {
         </div>
         <div className="card-body">
         <Switch>
-          <Route path="/ch01/comA" exact component={ComA}/>
-          <Route path="/ch01/comB" exact component={ComB}/>
+          <Route path={`${props.match.url}/comA`} exact component={ComA}/>
+          <Route path={`${props.match.url}/comB`} exact component={ComB}/>
           <Redirect to="/"/>
         </Switch>
         </div>

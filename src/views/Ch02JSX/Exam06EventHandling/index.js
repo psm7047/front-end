@@ -3,7 +3,7 @@ import ComBFunctionTypeEventHandling from "./ComBFunctionTypeEventHandling";
 import ComCTwoWayBinding from "./ComCTwoWayBinding";
 
 
-function Exam06EventHandling() {
+function Exam06EventHandling(props) {
   return (
     <div className="card">
     <div className="card-header">

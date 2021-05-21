@@ -1,4 +1,4 @@
-function Exam01WrapElement() {
+function Exam01WrapElement(props) {
     return (
       <div className="card">
         <div className="card-header">Exam01WrapElement</div>

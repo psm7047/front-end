@@ -25,7 +25,7 @@ function AppMenu() {
       </li>
       <li className="nav-item mt-3">
         <h6 className="text-white">Ch03. Props and State</h6>
-        <Link to="/ch03/exam01" className="nav-link text-warning">Exam01WrapElement</Link>
+        <Link to="/ch03/exam01" className="nav-link text-warning">Exam01Props</Link>
         <Link to="/ch03/exam02" className="nav-link text-warning">Exam02State</Link>
       </li>
     </ul>

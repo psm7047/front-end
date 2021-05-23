@@ -1,4 +1,5 @@
 import { useState } from "react";
+import produce from "immer";
 
 function ComCFunWithImmer(props) {
     const[joinForm, setJoinForm] = useState({
@@ -17,39 +18,22 @@ function ComCFunWithImmer(props) {
 
     const handleChange = (event) => {
         if(event.target.name !== "uskill") {
-            setJoinForm({
-                ...joinForm,
-                [event.target.name]: event.target.value
-            })
+            setJoinForm(produce((draft) => {
+                draft[event.target.name] = event.target.value;
+            }))
             
         }
         else {
             if(event.target.checked) {
-                // setJoinForm({
-                //     ...joinForm,
-                //     uskill: joinForm.uskill.concat(event.target.value)
-                // });
-                setJoinForm(prevJoinForm => ({
-                    ...prevJoinForm,
-                    uskill: prevJoinForm.uskill.concat(event.target.value)
+                setJoinForm(produce((draft) => {
+                    draft.uskill.push(event.target.value);
                 }));
             }
             else {
-                // setJoinForm({
-                //     ...joinForm,
-                //     uskill: joinForm.uskill.filter(item => item !== event.target.value)
-                // });
-
-                // setJoinForm(prevJoinForm => ({
-                //     ...joinForm,
-                //     uskill: joinForm.uskill.filter(item => item !== event.target.value)
-                // }));
-                setJoinForm(prevJoinForm => {
-                    return {
-                        ...joinForm,
-                        uskill: joinForm.uskill.filter(item => item !== event.target.value)
-                    };
-                });
+                setJoinForm(produce((draft) => {
+                    var index = draft.uskill.findIndex(item => item === event.target.value);
+                    draft.uskill.splice(index,1);
+                }));
             }
         }
     };
@@ -57,7 +41,7 @@ function ComCFunWithImmer(props) {
     return(
         <div className="card">
         <div className="card-header">
-          ComCFun
+          ComCFunWithImmer
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>

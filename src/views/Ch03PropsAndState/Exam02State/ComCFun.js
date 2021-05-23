@@ -1,5 +1,4 @@
 import { useState } from "react";
-import produce from "immer";
 
 function ComCFun(props) {
     const[joinForm, setJoinForm] = useState({
@@ -18,22 +17,39 @@ function ComCFun(props) {
 
     const handleChange = (event) => {
         if(event.target.name !== "uskill") {
-            setJoinForm(produce((draft) => {
-                draft[event.target.name] = event.target.value;
-            }))
+            setJoinForm({
+                ...joinForm,
+                [event.target.name]: event.target.value
+            })
             
         }
         else {
             if(event.target.checked) {
-                setJoinForm(produce((draft) => {
-                    draft.uskill.push(event.target.value);
+                // setJoinForm({
+                //     ...joinForm,
+                //     uskill: joinForm.uskill.concat(event.target.value)
+                // });
+                setJoinForm(prevJoinForm => ({
+                    ...prevJoinForm,
+                    uskill: prevJoinForm.uskill.concat(event.target.value)
                 }));
             }
             else {
-                setJoinForm(produce((draft) => {
-                    var index = draft.uskill.findIndex(item => item === event.target.value);
-                    draft.uskill.splice(index,1);
-                }));
+                // setJoinForm({
+                //     ...joinForm,
+                //     uskill: joinForm.uskill.filter(item => item !== event.target.value)
+                // });
+
+                // setJoinForm(prevJoinForm => ({
+                //     ...joinForm,
+                //     uskill: joinForm.uskill.filter(item => item !== event.target.value)
+                // }));
+                setJoinForm(prevJoinForm => {
+                    return {
+                        ...joinForm,
+                        uskill: joinForm.uskill.filter(item => item !== event.target.value)
+                    };
+                });
             }
         }
     };

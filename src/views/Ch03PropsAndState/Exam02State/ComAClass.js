@@ -17,8 +17,12 @@ class ComAClass extends React.Component {
         this.setState({
             ...this.state,
             number: this.state.number + 1
+        }, () => {
+            console.log("이전", this.state.number);
         });
+        console.log("이후", this.state.number);
     }
+    
 
     changeColor = (event) => {
         this.setState({

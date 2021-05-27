@@ -9,7 +9,7 @@ function LoginFormFun(props) {
         setUid(event.target.value);
     };
 
-    const appContext = useContext(AppContext);
+    const appContext = useContext(AppContext);      //컨텍스트 참조
 
     const login = (event) => {
         appContext.setUid(uid);

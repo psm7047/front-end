@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { createSetAuthTokenAction, createSetUidAction } from "redux/auth-reducer";
 
+//부모 컴포넌트에서 props로 속성을 자식 컴포넌트에게 전달(store)
 class LoginFormClass extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +14,7 @@ class LoginFormClass extends React.Component {
     handleChange = (event) => {
         this.setState({uid: event.target.value});
     };
-
+    //클래스형 컴포넌트는 전역 상태 및 액션을 리듀서로 보내는 함수를 props로 전달
     login = (event) => {
         this.props.setUid(this.state.uid);
     };

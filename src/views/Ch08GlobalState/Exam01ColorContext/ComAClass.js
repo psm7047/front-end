@@ -12,7 +12,7 @@ class ComAClass extends React.Component {
         this.state = {};
     }
 
-    handleChange = (event) => {
+    handleChange = (event) => {         //provider가 있을 경우에만 상태가 변경됨
         this.context.setColor("red");
     }
 
@@ -25,7 +25,7 @@ class ComAClass extends React.Component {
                   </div>
                   <div className="card-body">
                   <button className="btn btn-info btn-sm mb-3" onClick={this.handleChange}>색깔 변경</button>
-                      <div style={{backgroundColor: this.context.color}}>
+                      <div style={{backgroundColor: this.context.color}}>   {/*provider가 상태가 바뀌었음을 통보하면 컴포넌트 리렌더링 됨 */}
                           내용
                       </div>
                       <ComBFun/>

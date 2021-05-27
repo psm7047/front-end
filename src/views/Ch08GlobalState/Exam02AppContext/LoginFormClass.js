@@ -2,7 +2,7 @@ import AppContext from "AppContext";
 import React from "react";
 
 class LoginFormClass extends React.Component {
-    static contextType = AppContext;
+    static contextType = AppContext;        //정적 속성 추가, 하나의 컨텍스트 참조
 
     constructor(props) {
         super(props);

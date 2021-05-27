@@ -6,7 +6,7 @@ import Exam04ReactMemo from "./Exam04ReactMemo";
 // import Exam05ListWithScroll from "./Exam05ListWithScroll";
 
 import loadable from "@loadable/component";
-const Exam05ListWithScroll = loadable(()=> import("./Exam05ListWithScroll"));
+const Exam05ListWithScroll = loadable(()=> import("./Exam05ListWithScroll")); //코드 스플리팅: 해당 페이지에 접근할 때 페이지 로딩
 
 function Ch07PerformanceImprovement(props) {
   return (

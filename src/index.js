@@ -9,8 +9,10 @@ import { AppContextProvider } from "AppContext";
 import { createStore } from "redux";
 import rootReducer from "redux/root-reducer";
 import { Provider } from "react-redux";
+import { composeWithDevTools } from "redux-devtools-extension"
 
-const store = createStore(rootReducer);
+//모든 리듀서들의 상태를 관리(상태 데이터베이스라고 생각), 메소드 사용 가능(state, dispatch)
+const store = createStore(rootReducer, composeWithDevTools());
 
 ReactDOM.render(
     <BrowserRouter>

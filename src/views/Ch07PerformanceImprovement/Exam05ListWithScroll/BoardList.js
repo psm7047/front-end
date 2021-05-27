@@ -71,7 +71,7 @@ function BoardList(props) {
         <BoardListItem board={boards[index]}  
                         changeBoard={changeBoard} 
                         removeBoard={removeBoard}
-                        overscanRowCount={5}/>  {/* overScanRowCount: 미리 5개의 여유분을 만들어 놔서 스크롤 시 로딩을 줄여줌*/}
+                        overscanRowCount={2}/>  {/* overScanRowCount: 미리 5개의 여유분을 만들어 놔서 스크롤 시 로딩을 줄여줌*/}
       </div>
     );
   };
@@ -112,7 +112,8 @@ function BoardList(props) {
                     list={boards} 
                     rowCount={boards.length}
                     rowHeight={40}
-                    rowRenderer={rowRenderer}/>
+                    rowRenderer={rowRenderer}
+                    overscanRowCount={5}/> //* overscanRowCount: 미리 5개의 여유분을 만들어 놔서 스크롤 시 로딩을 줄여줌*/}
             );
           }}
         </AutoSizer>

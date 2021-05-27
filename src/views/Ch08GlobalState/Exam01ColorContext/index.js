@@ -9,7 +9,7 @@ function Exam01ColorContext(props) {
               Exam01ColorContext
               </div>
               <div className="card-body">
-                  <ColorContextProvider>
+                  <ColorContextProvider>      {/*Provider 제공 */}
                     <ComAClass/>
                     <ComBFun/>
                   </ColorContextProvider>

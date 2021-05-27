@@ -10,11 +10,11 @@ function LoginFormFun(props) {
         setUid(event.target.value);
     };
 
-    const globalUid = useSelector((state) => state.authReducer.uid);
+    const globalUid = useSelector((state) => state.authReducer.uid);        //전역 상태 읽기
     const dispatch = useDispatch();
 
     const login = (event) => {
-        dispatch(createSetUidAction(uid));
+        dispatch(createSetUidAction(uid));     //새로운 상태를 리듀서로 통보
     };
 
     const logout = (event) => {

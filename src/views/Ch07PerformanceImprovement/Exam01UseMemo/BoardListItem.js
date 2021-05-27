@@ -1,4 +1,7 @@
 function BoardListItem(props) {
+
+  console.log("BoardListItem 리렌더링: ", props.board.bno);
+
   return (
     <div className="d-flex align-items-center justify-content-between border-bottom">
             <div className="d-flex">

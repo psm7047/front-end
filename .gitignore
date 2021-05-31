@@ -6,5 +6,4 @@
 # production
 /build
 public/resources/img
-package.json
-yarn.lock
+debug.log

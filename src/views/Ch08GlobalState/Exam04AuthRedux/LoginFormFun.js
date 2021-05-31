@@ -14,7 +14,7 @@ function LoginFormFun(props) {
     const dispatch = useDispatch();
 
     const login = (event) => {
-        dispatch(createSetUidAction(uid));     //새로운 상태를 리듀서로 통보
+        dispatch(createSetUidAction(uid));     //액션 생성함수를 호출 한 후 리듀서로 통보
     };
 
     const logout = (event) => {

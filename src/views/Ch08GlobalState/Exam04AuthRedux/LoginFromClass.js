@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createSetAuthTokenAction, createSetUidAction } from "redux/auth-reducer";
+import { createSetUidAction } from "redux/auth-reducer";
 
 //부모 컴포넌트에서 props로 속성을 자식 컴포넌트에게 전달(store)
 class LoginFormClass extends React.Component {

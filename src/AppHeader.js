@@ -1,18 +1,28 @@
+import { removeAuthHeader } from "apis/axiosConfig";
 import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createSetUidAction } from "redux/auth-reducer";
+import { createSetAuthTokenAction, createSetUidAction } from "redux/auth-reducer";
 import AppContext from "./AppContext";
 
 function AppHeader(props) {
+    //context
     const appContext = useContext(AppContext);
-
+    //redux
     const globalUid = useSelector((state) => state.authReducer.uid);
     const dispatch = useDispatch();
 
     const logout = (event) => {
+        //context 이용
         appContext.setUid("");
+        //redux 이용
         dispatch(createSetUidAction(""));
+        dispatch(createSetAuthTokenAction(""));
+        removeAuthHeader();
+
+        //sessionStorage에 인증 내용 제거
+        sessionStorage.removeItem("uid");
+        sessionStorage.removeItem("authToken");
     };
 
     return(
@@ -24,7 +34,7 @@ function AppHeader(props) {
             </Link>
             <div>
                 {appContext.uid === "" &&  globalUid === "" ? 
-                    (<Link to="/ch08/exam02" className="btn btn-success btn-sm">로그인</Link>)
+                    (<Link to="/ch09/exam02" className="btn btn-success btn-sm">로그인</Link>)
                     :
                     (<div className="d-flex align-items-center"> 
                         <span className="mr-2">
